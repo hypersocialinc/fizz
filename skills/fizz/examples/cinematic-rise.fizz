@@ -1,0 +1,51 @@
+fizz score v1
+# Cinematic Rise: a build into a big chorus in D minor (the cinematic-rise example, rewritten in v1).
+# Shows: a section reused with layers added, a lead entering halfway, a snare and
+# noise riser ramping up, and a chorus lead that lands on chord tones on beats 1 and 3.
+bpm 90
+key D minor
+mix cinematic
+form: build lift chorus chorus
+
+section "build" bars=8
+  chords: i:2 VI:2 III:2 V7:2
+  pad strings attack=0.5 release=2 space=hall : x___ ____ ____ ____
+  bass sub_bass octave=1 :
+    1| x___ ____ ____ ____
+    2| x___ ____ ____ x___
+  lead choir space=hall enter=5 :
+    1| 3 _ _ _ 4 _ _ _ 3 _ 1 _ 7, _ _ _
+    2| 5 _ _ _ 6 _ _ _ 5 _ _ _ 3 _ _ _
+    3| 5 _ _ _ 4 _ 2 _ 2 _ _ _ #7, _ _ _
+    4| #7, _ _ _ 2 _ _ _ 5, _ _ _ _ _ _ _
+  kick kit_bd :
+    1| x... .... .... ....
+    2| x... .... x... ..x.
+
+section "lift" from=build
+  snare kit_sd ramp=gain,0.2,0.9 :
+    1| .... .... .... x...
+    2| .... x... .... x.xr
+  fx#riser pink enter=5 ramp=hpf,300,8000 ramp=gain,0,0.5 :
+    1| x___ ____ ____ ____
+    2| ____ ____ ____ ____
+
+section "chorus" bars=8
+  chords: VI:2 VII:2 i:2 V:2
+  kick 909_bd :
+    1| x... ..x. x... ....
+    2| x... ..x. x... ..x.
+  snare 909_sd : .... x... .... x...
+  pad strings space=hall : x___ ____ x___ ____
+  lead brass presence=front :
+    1| 1' . . 7 . . 6 . 6 . . . . . . .
+    2| 3' . . . 2' . 1' . 3 . . . . . . .
+    3| 2' . . 1' . . 7 . 4 . . . . . . .
+    4| 7 . . 1' . . 2' . 7 . 6 . 5 . . .
+    5| 1' . . 7 . . 6 . 5 . . . . . . .
+    6| 3 . 4 . 5 . . . 1' . . . . . . .
+    7| 5 . . 4 . . 2 . #7, . . . . . . .
+    8| 2 . . . #7, . . . 5, . . . . . . .
+  bass sub_bass octave=1 :
+    1| x..x ..x. x... x...
+    2| x... x..x ..x. ....

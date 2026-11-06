@@ -1,0 +1,36 @@
+fizz score v1
+bpm 82
+key F major
+swing 0.33
+form: verse chorus
+
+phrase hook = 3 . 5 . 6 . 5 .
+
+section "verse" bars=8
+  chords: Imaj7:2 vi7:2 ii7:2 V7:2
+  kick mpc60_bd gain=0.8 :
+    1| x... ...x ..x. ....
+    2| x... ...x ..x. ..x.
+  snare mpc60_sd gain=0.5 room=0.15 : .... x... .... x...
+  hat mpc60_hh gain=0.3 hpf=300 : x.x. x.xx x.x. x.x.
+  chords epiano octave=3 gain=0.4 hpf=180 room=0.35 :
+    1| x... .... ..x. ....
+    2| x... ..x. .... ....
+  bass finger_bass octave=2 gain=0.6 hpf=40 :
+    1| x... .... x... .. 5, .
+    2| x... ..x. .... 5, ...
+
+section "chorus" from=verse
+  chords: IV:2 V:2 iii:2 vi:2
+  #kick gain=0.85 : x... ..x. x... ....
+  #snare gain=0.55 room=0.15 : .... x... .... x..x
+  #hat gain=0.32 hpf=300 : x.xx x.x. x.xx x.x.
+  #chords gain=0.45 hpf=180 room=0.35 : x... ..x. ..x. ....
+  #bass gain=0.62 hpf=40 :
+    1| x... ..x. .x.. 5, ...
+    2| x... .x.. ..x. 3...
+  lead#hook kalimba octave=4 gain=0.35 hpf=300 room=0.4 delay=0.2 :
+    1| $hook . . 3 . 2 . . .
+    2| 3 . 5 . 6 . . 1' . . 6 . 5 . . .
+    3| 1 . 2 . 3 . . . 5 . 3 . 2 . . .
+    4| $hook 3 . . . . . . .

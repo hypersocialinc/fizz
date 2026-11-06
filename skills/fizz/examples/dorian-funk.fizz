@@ -1,0 +1,22 @@
+fizz score v1
+bpm 100
+key E dorian
+swing 0.2
+
+section "groove" bars=4
+  chords: i7:2 IV7:2
+  kick kit_bd gain=0.9 :
+    1| x... ..x. ..x. ....
+    2| x..x ..x. .... ..x.
+  snare kit_sd gain=0.6 : .... X..r .x.. X...
+  hat kit_hh gain=0.35 hpf=500 : x <x .> x. xxxx x.x. xxxx
+  hat#shaker perc_sh steps=12 gain=0.25 pan=0.7 : x.x x.x x.x x.x
+  bass pick_bass octave=1 gain=0.7 lpf=1800 :
+    1| 1 . 1' . . 5 . 7 1 . . 3' . 1' [5 4] .
+    2| 1 . . 1' . 5 . . 1 . 3' . 1' . [7 5] .
+    3| 4 . 4' . . 1' . 3' 4 . . 6' . 4' [1' 7] .
+    4| 4 . . 4' . 1' . . 4 . 6' . 4' . [3' 1'] .
+  chords clav octave=3 gain=0.4 hpf=250 : .x.x ..x. .x.. x.x.
+  lead brass octave=4 gain=0.35 room=0.25 :
+    1| . . . . 5 . 7 1' . . 7 . 5 . . .
+    2| . . . . . . . . 5 . 7 1' . 7 5 .

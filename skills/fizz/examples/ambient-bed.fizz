@@ -1,0 +1,38 @@
+fizz score v1
+# Ambient Bed: slow, wide and warm in F major (upgraded from the ambient-bed seed).
+# Shows: chords held across bar lines, a filter lfo, a lead entering mid-section,
+# a gain ramp on a reused section, a noise wash, and tone/mix intent instead of raw fx.
+bpm 70
+key F major
+mix cinematic
+tone warm
+form: drift bloom drift
+
+phrase bell = 5 _ _ _ _ _ 3 _ _ _ _ _ 2 _ _ _
+
+section "drift" bars=8
+  chords: Imaj7:2 vi7:2 ii7:2 V7:2
+  pad warm_pad space=hall lfo=lpf,600,2400,8 :
+    1| x___ ____ ____ ____
+    2| ____ ____ ____ ____
+  pad#air glass_pad presence=back voicing=spread :
+    1| x___ ____ ____ ____
+    2| ____ ____ ____ ____
+  bass sub_bass :
+    1| x___ ____ ____ ____
+    2| ____ ____ ____ ____
+
+section "bloom" from=drift
+  #air ramp=gain,0.3,0.9
+  lead#bell bells space=hall enter=3 :
+    1| $bell
+    2| . . . . . . . . . . . . . . . .
+    3| $bell+1
+    4| . . . . . . . . 1' _ _ _ 7 _ _ _
+    5| $bell-1
+    6| . . . . . . . . 5 _ _ _ 3 _ 2 _
+    7| $bell+2
+    8| . . . . . . . . . . . . . . . .
+  fx#wash pink presence=back enter=5 ramp=hpf,400,6000 ramp=gain,0,0.4 :
+    1| x___ ____ ____ ____
+    2| ____ ____ ____ ____

@@ -1,0 +1,47 @@
+fizz score v1
+# Night Bus Soul: a slow soul song in B minor (upgraded from the night-bus-soul seed).
+# Shows: form with repeats, a chorus built from the verse, a named hook moved by
+# scale steps, voice-led keys, humanize and a seed.
+bpm 72
+key B minor
+swing 0.2
+mix bedroom-pop
+seed 7
+form: intro verse chorus verse chorus
+
+phrase hook = 3 . 1 . 3 _ 4 . 3 _ _ . 1 _ _ .
+
+section "intro" bars=4
+  chords: i VI III VII
+  chords epiano voicing=open humanize=0.3 : x___ ____ ____ ____
+  pad choir presence=back space=hall : x___ ____ ____ ____
+
+section "verse" bars=8
+  chords: i:2 VI:2 III:2 V7:2
+  kick linndrum_bd :
+    1| x... .... ..x. ....
+    2| x... ...x ..x. ....
+  snare linndrum_sd : .... x... .... x...
+  hat mpc60_hh humanize=0.3 chance=0.9 : x.x. x.xx x.x. x.x.
+  chords epiano humanize=0.25 :
+    1| x... .... ..x. ....
+    2| x... ..x. .... ..x.
+  bass finger_bass humanize=0.2 :
+    1| x . . . . . x . x . . . . . 5, .
+    2| x . . . x . . . x . . . x . x .
+
+section "chorus" from=verse
+  chords: VI:2 VII:2 i:2 V7:2
+  #kick :
+    1| x... ..x. x... ....
+    2| x... ..x. x..x ..x.
+  pad choir presence=back space=hall : x___ ____ ____ ____
+  lead#hook guitar presence=front space=room :
+    1| $hook
+    2| 3 . 1 . 6, _ _ . . . . . . . . .
+    3| $hook-1
+    4| 2 . 7, . 5, _ _ . . . . . . . . .
+    5| $hook
+    6| 5 . 3 . 1 _ _ . . . . . . . . .
+    7| 2 . . . 4 . . . #7, _ _ _ . . . .
+    8| . . . . . . . . . . . . . . . .

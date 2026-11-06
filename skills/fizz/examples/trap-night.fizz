@@ -1,0 +1,19 @@
+fizz score v1
+bpm 140
+key G minor
+
+section "verse" bars=8
+  chords: i:2 VI:2 iv:2 V:2
+  kick 808_bd gain=0.9 :
+    1| x... ...x ..x. ....
+    2| x... .... x.x. .x..
+  snare 808_sd gain=0.6 room=0.1 : .... x... .... x.r.
+  hat 808_hh steps=32 gain=0.3 hpf=400 :
+    1| x.x.x.x. x.x.x.x. x.x.xxxx x.x.x.x.
+    2| x.x.x.x. x.x.x.x. xxxxxxxx x.x.x.x.
+  bass sine octave=1 gain=0.7 lpf=200 :
+    1| x___ ___x ..x_ ....
+    2| x___ .... x.x_ .x..
+  lead bells octave=4 gain=0.3 room=0.5 delay=0.35 :
+    1| 5 . . . 3 . . . 2 . 1 . . . . .
+    2| 5 . . . 3 . . . #7, . . . 1 . . .
