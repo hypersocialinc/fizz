@@ -251,3 +251,18 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | `W_SILENT_LAYER` | `sections[0].layers[0].pattern` | the kick layer never plays; remove it or add hits |
 | `W_NORMALISED` (v1) | `sections[0].layers[0].pattern` | "_" after a rest held nothing; it now rests |
 | `W_UNUSED` (v1) | `phrases` | phrase "a" is never used; use it as $a or remove it |
+
+### Musical findings (lint)
+
+`lint(score)` (`packages/score/src/lint.ts`, or `compile(…, { lint: true })` as `findings`) returns the musical checks in the same issue shape, all warnings: the score still plays, and a deliberate blue note is allowed. They are kept apart from the validator's warnings (and from `strict`). `fizz check` prints them with the line (a bar line where the pattern is written one bar per line) and `--strict` fails on them; the composer sends `W_OFF_CHORD_STRONG` back once (its other findings go into the result's `warnings`); `scripts/fizz-tracks-lint.test.ts` fails CI on any `W_OFF_CHORD_STRONG` in a shipped track. One finding of a kind per layer.
+
+| Code | Path | Message |
+|---|---|---|
+| `W_OFF_CHORD_STRONG` | `sections[0].layers[4].pattern[0]` | lead, bar 4 beat 1: Ab over Cm7. Land on chord tones on beats 1 and 3: move it to C, Eb, G or Bb, or put a hook that must fit every chord on a chords layer |
+| `W_REPEATED_RHYTHM` | `sections[0].layers[4]` | lead plays the same rhythm two bars running. Vary it: write 2 or 4 different bars in the pattern |
+| `W_REVERB_ON_BASS` | `sections[0].layers[1]` | room or delay on the bass muddies the low end. Take them off the bass |
+| `W_ONE_OCTAVE` | `sections` | every note sits inside one octave. Spread the registers: bass at octave 1–2, chords at 3, lead at 4–5 |
+| `W_LEAD_NO_MOTIF` | `sections[0].layers[2]` | the lead never repeats a 3-note shape. State a motif, repeat it with one change, answer it, return |
+| `W_SINGLE_CHORD_VAMP` (song-form brief only) | `sections[0].chords` | fewer than 3 distinct chords in a song-form track. Write a real progression: 3 or more chords, ending on V → i or V → I |
+
+`W_OFF_CHORD_STRONG` checks `bass`, `chords`, `lead` and `pad` (not `fx` or drums): the note sounding on step 1 or 9 (the half bar for other step counts), a held or glided note counting as the note it continues, against the bar's chord tones (the triad, the 7th when the symbol has one, a slash chord's bass).

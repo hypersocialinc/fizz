@@ -19,4 +19,4 @@ section "groove" bars=4
   chords clav octave=3 gain=0.4 hpf=250 : .x.x ..x. .x.. x.x.
   lead brass octave=4 gain=0.35 room=0.25 :
     1| . . . . 5 . 7 1' . . 7 . 5 . . .
-    2| . . . . . . . . 5 . 7 1' . 7 5 .
+    2| . . . . . . . . 1' . 7 1' . 7 5 .

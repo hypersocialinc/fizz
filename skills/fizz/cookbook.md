@@ -2,7 +2,7 @@
 
 # Fizz cookbook
 
-Twenty things producers do, each as a complete track that passes `fizz check`. Copy the construct, not the whole track.
+Twenty-one things producers do, each as a complete track that passes `fizz check`. Copy the construct, not the whole track.
 
 ## 1. Swing
 
@@ -355,4 +355,27 @@ section "pump" bars=4
   kick 909_bd : x... x... x... x...
   pad warm_pad lfo=gain,0.3,0.8,0.25 : x___ ____ ____ ____
   bass analog_bass : ..x. ..x. ..x. ..x.
+```
+
+## 21. Plucked chord hook
+
+How: a `chords` layer of `x` hits plays each bar's chord, so a hook fits every chord
+
+```fizz
+fizz score v1
+bpm 96
+key F minor
+
+# The hook is a rhythm on a chords layer: each x plays that bar's chord, voice-led,
+# so it fits every chord without one note written per bar.
+section "hook" bars=4
+  chords: i7 VImaj7 iv7 v7
+  kick kit_bd : x... ...x ..x. ....
+  snare kit_sd : .... x... .... x...
+  chords#hook pluck octave=4 voicing=led :
+    1| x.x. ..x. x... x.x.
+    2| x.x. ..x. x.x. ....
+  bass finger_bass :
+    1| x... .... x... ..x.
+    2| x... ..x. .x.. ....
 ```

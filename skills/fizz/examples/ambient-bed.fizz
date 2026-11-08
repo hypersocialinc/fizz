@@ -27,10 +27,10 @@ section "bloom" from=drift
   lead#bell bells space=hall enter=3 :
     1| $bell
     2| . . . . . . . . . . . . . . . .
-    3| $bell+1
+    3| $bell+3
     4| . . . . . . . . 1' _ _ _ 7 _ _ _
     5| $bell-1
-    6| . . . . . . . . 5 _ _ _ 3 _ 2 _
+    6| . . . . . . . . 4 _ _ _ 3 _ 2 _
     7| $bell+2
     8| . . . . . . . . . . . . . . . .
   fx#wash pink presence=back enter=5 ramp=hpf,400,6000 ramp=gain,0,0.4 :

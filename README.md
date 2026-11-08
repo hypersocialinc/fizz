@@ -2,7 +2,7 @@
 
 An agent skill for writing music in **Fizz**, the plain-text music language of [Fizz FM](https://fizz.fm).
 
-A Fizz track is a few lines: the tempo, the key, the chords and what each instrument plays on a step grid. Pitches are scale degrees, so every note is in key. The skill teaches an agent the language, the theory, arrangement, groove and mix rules that make a track sound good, a cookbook of 20 producer idioms, and eight worked tracks across genres.
+A Fizz track is a few lines: the tempo, the key, the chords and what each instrument plays on a step grid. Pitches are scale degrees, so every note is in key. The skill teaches an agent the language, the theory, arrangement, groove and mix rules that make a track sound good, a cookbook of 21 producer idioms, and eight worked tracks across genres.
 
 ## Install
 

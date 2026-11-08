@@ -1,6 +1,6 @@
 ---
 name: fizz
-description: Write and edit music in Fizz, the plain-text music language of Fizz FM (fizz.fm). Use when asked to make a beat, compose a song or track, write a groove, loop or soundtrack, or change an existing Fizz track ("make it darker", "add a bass", "change the key", "make the chorus bigger"), or when working with .fizz files. Covers the language, theory, arrangement, groove and mix rules, a cookbook of 20 producer idioms, 8 worked tracks, and the fizz CLI that checks and analyses a track.
+description: Write and edit music in Fizz, the plain-text music language of Fizz FM (fizz.fm). Use when asked to make a beat, compose a song or track, write a groove, loop or soundtrack, or change an existing Fizz track ("make it darker", "add a bass", "change the key", "make the chorus bigger"), or when working with .fizz files. Covers the language, theory, arrangement, groove and mix rules, a cookbook of 21 producer idioms, 8 worked tracks, and the fizz CLI that checks and analyses a track.
 ---
 
 # Fizz
@@ -33,8 +33,8 @@ section "loop" bars=4
 1. **Brief.** Pin down genre, mood, tempo and length. If the request is vague ("something chill"), pick and say what you picked.
 2. **Plan** in a few lines before writing: bpm, key and scale, `mix`, the form (`intro verse chorus …`), each section's progression, which layers play where, and the lead's motif. `references/theory.md`, `arrangement.md` and `groove.md` have the defaults per genre.
 3. **Write** the `.fizz` file. Start from the closest track in `examples/` or idiom in `cookbook.md` rather than from nothing.
-4. **Check:** `fizz check track.fizz`. Every error names the line and says how to fix it. Fix and check again until it says `ok`. Warnings are worth reading; `W_NORMALISED` means the checker repaired something for you.
-5. **Analyse:** `fizz analyse track.fizz`. Without ears, this is how you hear it: the progression per section, which layers play where, density per section, the lead's and bass's chord tones on strong beats, and notes on what usually sounds wrong. Fix what it flags unless you meant it.
+4. **Check:** `fizz check --strict track.fizz`. Every error and warning names the line and says how to fix it. Fix and check again until it says `ok` with no warnings. Musical warnings (`W_OFF_CHORD_STRONG`, `W_REPEATED_RHYTHM`…) say what will sound wrong; leave one only if you meant it (a blue note), and then check without `--strict`. `W_NORMALISED` means the checker repaired something for you.
+5. **Analyse:** `fizz analyse track.fizz`. Without ears, this is how you hear it: the progression per section, which layers play where, density per section, the lead's and bass's chord tones on strong beats, and notes (the same warnings as `fizz check`, with their lines) on what usually sounds wrong. Fix what it flags unless you meant it.
 6. **Deliver** the file. To play it elsewhere: `fizz export --strudel track.fizz` prints Strudel code for strudel.cc.
 
 Editing a track: change only what was asked and keep everything else exactly as it was. "Darker" is `tone dark`; "faster" is `bpm`; "add a bass" adds one layer; "in E minor" changes the `key` line only (degrees move with it).
@@ -43,7 +43,7 @@ Editing a track: change only what was asked and keep everything else exactly as 
 
 | Command | What it does |
 |---|---|
-| `fizz check <file>` | validate; errors as `file:line: error CODE path: message` |
+| `fizz check <file> [--strict]` | validate; errors and warnings as `file:line: error CODE path: message`; `--strict` fails on any warning |
 | `fizz analyse <file> [--json]` | sections, chords, lanes, density and musical notes |
 | `fizz expand <file>` | v1 source to the flat JSON a player stores |
 | `fizz print <file.json>` | JSON to the text form |
@@ -62,7 +62,8 @@ These cause nearly every failed first try.
 4. **Header first.** Line 1 is `fizz score v1`; comments (`# …`) come after it.
 5. **Instrument ids exactly** as in `references/instruments.md`; drums play their own role (`909_bd` is a kick).
 6. **Chords in the key's quality:** in A minor the ii chord is `ii°`, not `ii`; `V`/`V7` are fine in minor. A chord from outside the key is a warning, and fine if you mean it.
-7. **Music, not just valid syntax:** a real progression (3+ chords for a song, resolving V → i or IV → I), lead and bass on chord tones on beats 1 and 3, a lead built on a repeated motif, a bass and lead rhythm that changes from bar to bar, sections that differ in density. See `references/rules.md`.
+7. **A melody that repeats over changing chords** clashes on the beat: write a line per bar on that bar's chord tones, or put it on a `chords` layer, whose `x` plays the current chord. `fizz check` flags it as `W_OFF_CHORD_STRONG`.
+8. **Music, not just valid syntax:** a real progression (3+ chords for a song, resolving V → i or IV → I), lead and bass on chord tones on beats 1 and 3, a lead built on a repeated motif, a bass and lead rhythm that changes from bar to bar, sections that differ in density. See `references/rules.md`.
 
 ## Files
 
