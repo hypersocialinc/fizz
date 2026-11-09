@@ -52,6 +52,8 @@ Editing a track: change only what was asked and keep everything else exactly as 
 
 Use `fizz` if it is on your PATH (`fizz --version`). Otherwise run it as `npx @hypersocial/fizz check track.fizz`, or install it with `npm i -g @hypersocial/fizz`. Inside the Fizz FM repo it is `pnpm fizz check track.fizz`. With no CLI at all, check by hand: count every bar's steps, and keep instrument ids to `references/instruments.md`.
 
+An assistant with connectors (Claude, ChatGPT) can use Fizz FM's MCP server instead, at `https://fizz.fm/api/mcp`: `check_fizz` and `analyse_fizz` are the CLI's check and analyse, `save_track` saves a track and returns a link that plays it, and `compose_track` has Fizz FM's composer write one.
+
 ## The rules that matter most
 
 These cause nearly every failed first try.
