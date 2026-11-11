@@ -1,6 +1,6 @@
 ---
 name: fizz
-description: Write and edit music in Fizz, the plain-text music language of Fizz FM (fizz.fm). Use when asked to make a beat, compose a song or track, write a groove, loop or soundtrack, or change an existing Fizz track ("make it darker", "add a bass", "change the key", "make the chorus bigger"), or when working with .fizz files. Covers the language, theory, arrangement, groove and mix rules, a cookbook of 21 producer idioms, 8 worked tracks, and the fizz CLI that checks and analyses a track.
+description: Write and edit music in Fizz, the plain-text music language of Fizz FM (fizz.fm). Use when asked to make a beat, compose a song or track, write a groove, loop or soundtrack, or change an existing Fizz track ("make it darker", "add a bass", "change the key", "make the chorus bigger"), or when working with .fizz files. Covers the language, theory, arrangement, groove and mix rules, a cookbook of 24 producer idioms, 8 worked tracks, and the fizz CLI that checks and analyses a track.
 ---
 
 # Fizz

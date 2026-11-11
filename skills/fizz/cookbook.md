@@ -379,3 +379,58 @@ section "hook" bars=4
     1| x... .... x... ..x.
     2| x... ..x. .x.. ....
 ```
+
+## 22. Plucked bass
+
+How: a filter envelope: `lpf=220 lpenv=4 lpdecay=0.18 lpsustain=0.05` opens and closes the low-pass on each note
+
+```fizz
+fizz score v1
+bpm 118
+key E minor
+
+# A filter envelope: the low-pass sits at lpf and opens lpenv octaves on every note, then
+# closes over lpdecay. Low lpsustain makes it a pluck; a lower lpf makes it rounder.
+section "pluck" bars=4
+  chords: i:2 VI:2
+  kick 909_bd : x... x... x... x...
+  bass analog_bass lpf=220 lpq=6 lpenv=4 lpdecay=0.18 lpsustain=0.05 : 1.1. .1.1 b3.1. 5.1.
+```
+
+## 23. Chorused electric piano
+
+How: `chorus=0.6 tremolo=0.3 tremrate=4.5` on `epiano`: spread and a slow wobble
+
+```fizz
+fizz score v1
+bpm 84
+key D minor
+
+# chorus spreads the keys left and right; a slow, shallow tremolo makes them breathe.
+# Keep tremolo under 0.4 and tremrate 3–6 Hz for a Rhodes; deeper and faster is a vibe effect.
+section "keys" bars=4
+  chords: i7 iv7 VImaj7 v7
+  chords epiano octave=3 voicing=led chorus=0.6 tremolo=0.3 tremrate=4.5 : x___ ____ __x_ ____
+  bass finger_bass : 1... .... 1... ..5,.
+  kick kit_bd : x... .... x.x. ....
+  snare kit_sd : .... x... .... x...
+```
+
+## 24. Dotted-eighth echo
+
+How: `delay=0.35 delaytime=0.1875 delayfeedback=0.55`; delaytime is a fraction of the bar
+
+```fizz
+fizz score v1
+bpm 120
+key A minor
+
+# A dotted-eighth echo: delaytime is a fraction of the bar (0.1875 = 3/16, a dotted
+# eighth; 0.25 a quarter; 0.125 an eighth). delayfeedback sets how many repeats (0–0.9).
+# Mixed, a section shares one delay, so give every layer that sends to it the same time.
+section "echo" bars=4
+  chords: i:2 VI:2
+  lead saw_lead octave=4 delay=0.35 delaytime=0.1875 delayfeedback=0.55 : 5... .... 3... .... | 1'... .... 7... ....
+  pad warm_pad : x___ ____ ____ ____
+  kick 909_bd : x... x... x... x...
+```

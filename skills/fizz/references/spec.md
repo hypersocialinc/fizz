@@ -29,7 +29,8 @@ type Layer = {
   chance?: number;          // 0–1, each hit plays with this probability (Strudel degradeBy)
   width?: number;           // 0–1 stereo width (Strudel jux)
   lfo?: { param: string; min: number; max: number; bars: number };  // one slow sweep of one fx
-  fx?: { gain?, lpf?, hpf?, lpq?, room?, size?, delay?, pan?, crush?, shape?, attack?, release? };
+  fx?: { gain?, lpf?, hpf?, lpq?, room?, size?, delay?, pan?, crush?, shape?, attack?, release?,
+         lpenv?, lpattack?, lpdecay?, lpsustain?, lprelease?, chorus?, tremolo?, tremrate?, delaytime?, delayfeedback? };
 };
 ```
 
@@ -198,7 +199,7 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | section | `key?`, `scale?` | the section's own key; `analyse` resolves every pitch in it (`SectionAnalysis.key`/`.scale`) |
 | layer | `id?: string` | a name unique in its section (`hat#open`); defaults to the role |
 | layer | `enter?`, `exit?: number` | first and last bar (from 1) the layer plays in its section; `analyse` emits no events outside |
-| layer | `ramp?: { param, from, to }[]` | one-way linear automation of an fx param (gain lpf hpf lpq room delay pan crush shape) from the start of the layer's first bar to the end of its last bar in the section; coexists with `lfo` on a different param |
+| layer | `ramp?: { param, from, to }[]` | one-way linear automation of an fx param (gain lpf hpf lpq room delay pan crush shape chorus tremolo delayfeedback) from the start of the layer's first bar to the end of its last bar in the section; coexists with `lfo` on a different param |
 | layer | `humanize?: number` | 0–1: seeded timing (up to ±10 ms at 1) and velocity jitter (up to ±0.15 at 1) |
 | layer | `voicing?: "close" \| "led" \| "open" \| "spread"` | how `x` on chords/pad stacks the chord; resolved into `ScoreEvent.midi` by `analyse`. Absent = close (v0); the v1 composer path sets `led` |
 | layer | `glide?: number` | seconds a `~` note slides from the previous note (default 0.1) |
@@ -230,13 +231,14 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | `E_DEGREE` | `sections[0].layers[0].pattern` | degree 8 is out of the scale; degrees run 1–7, write 1' for the octave above and 7, for the 7th below |
 | `E_PITCH_ON_DRUM` | `sections[0].layers[0].pattern` | "1" is a pitch but 909_bd is unpitched; drum layers use x, X and . |
 | `E_HOLD` | `sections[0].layers[0].pattern` | the bar, step 4: "_" after "." holds nothing ("X_._"). To rest write "X_..", to re-hit write "X_.X", to keep ringing write "X___" |
-| `E_FX_UNKNOWN` | `sections[0].layers[0].fx.reverb` | unknown fx "reverb"; fx are gain, lpf, hpf, lpq, room, size, delay, pan, crush, shape, attack, release |
+| `E_FX_UNKNOWN` | `sections[0].layers[0].fx.reverb` | unknown fx "reverb"; fx are gain, lpf, hpf, lpq, room, size, delay, pan, crush, shape, attack, release, lpenv, lpattack, lpdecay, lpsustain, lprelease, chorus, tremolo, tremrate, delaytime, delayfeedback |
 | `E_FX_RANGE` | `sections[0].layers[0].fx.lpf` | fx.lpf is 50000; lpf runs 20–20000 (low-pass cutoff in Hz; lower = darker) |
 | `E_RANGE` | `sections[0].layers[0].chance` | chance is 2; it runs 0–1 |
+| `E_LPENV_SWEEP` | `sections[0].layers[0].fx.lpenv` | lpenv moves the low-pass on every note, so the lpf can't also have an lfo or ramp; drop one |
 | `E_LFO` | `sections[0].layers[0].lfo` | lfo on lpf sweeps 500–500; it needs two different values inside 20–20000 (min > max sweeps down) |
 | `E_LAYER_ID` | `sections[0].layers[1].id` | two layers in section "a" are called "a" (layers 0 and 1); ids are unique in a section, rename one |
 | `E_ENTER_EXIT` | `sections[0].layers[0].enter` | enter is 5; it is a bar of the section, a whole number 1–4 |
-| `E_RAMP` | `sections[0].layers[0].ramp[0].param` | ramp.param "size" can't be automated; use one of gain, lpf, hpf, lpq, room, delay, pan, crush, shape |
+| `E_RAMP` | `sections[0].layers[0].ramp[0].param` | ramp.param "size" can't be automated; use one of gain, lpf, hpf, lpq, room, delay, pan, crush, shape, chorus, tremolo, delayfeedback |
 | `E_GLUED` (v1) | `sections[0].layers[0].pattern` | the bar has 15 of 16 steps, and "[xx]" is glued into ".x[xx]". One glued character is one step; a bracket group or marked degree stands alone with spaces around it. Write ".xr" (r is a roll) or ".x [xx]", then count again |
 | `E_FORM` (v1) | `form[1]` | form plays "x", which isn't a section; labels are "a" |
 | `E_FROM` (v1) | `sections[1].from` | section "b" is from "c", which leads back to "b"; a from chain can't loop |

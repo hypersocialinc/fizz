@@ -101,3 +101,13 @@ Fine-tuning on top of the mix intent, as `name=value` on a layer line.
 | `shape` | 0–1 | waveshaping drive |
 | `attack` | 0–4 | seconds |
 | `release` | 0–8 | seconds |
+| `lpenv` | 0–8 | filter envelope depth: octaves the low-pass opens above lpf on each note; needs lpf |
+| `lpattack` | 0–4 | filter envelope attack, seconds |
+| `lpdecay` | 0–4 | filter envelope decay, seconds |
+| `lpsustain` | 0–1 | filter envelope sustain, 0 (back to lpf) to 1 (stays open); unset, 0 with lpdecay and 1 without |
+| `lprelease` | 0–8 | filter envelope release, seconds. With no stage set: 0.005 attack, 0.14 decay, 0 sustain, 0.1 release (Strudel) |
+| `chorus` | 0–1 | chorus amount: modulated short delays, spread left and right |
+| `tremolo` | 0–1 | tremolo depth: how far the level dips on each wobble (Strudel tremolodepth) |
+| `tremrate` | 0.1–20 | tremolo speed in Hz, 5 when unset (Strudel tremolo) |
+| `delaytime` | 0.03125–1 | delay time as a fraction of a bar: 0.1875 dotted eighth (the default), 0.25 quarter, 0.125 eighth |
+| `delayfeedback` | 0–0.9 | delay feedback: how much each echo repeats; 0.5 unmixed, the preset's when mixed, if unset |

@@ -69,7 +69,7 @@ role[#id] instrument [attr=value …] : pattern
   - `chance=0–1`: each hit plays with this probability
   - `voicing=led|close|open|spread`: how `chords`/`pad` stack a chord (default `led`, the nearest inversion)
   - `glide=seconds`: how long a `~` slide takes (default 0.1)
-  - raw fx as `name=value`: `gain lpf hpf lpq room size delay pan crush shape attack release`
+  - raw fx as `name=value`: `gain lpf hpf lpq room size delay pan crush shape attack release`, and the movement effects `lpenv lpattack lpdecay lpsustain lprelease chorus tremolo tremrate delaytime delayfeedback` (ranges in `instruments.md`, when to use each in `mix.md`)
 - **pattern**, after ` : `, on the same line (one bar, repeated) or as bar lines under it:
 
 ```text
