@@ -8,6 +8,6 @@
   - **A `chords` layer**: for a hook that must fit every chord, write its rhythm as `x` hits on a `chords` layer (a pluck, keys or stab). Each `x` plays the bar's chord, voice-led, so it is always right.
 - **Leads are motifs.** State a 3–5 note shape, repeat it with one change, answer it, return. Not a fresh run every bar. Name it as a phrase and move it with `$name+n`.
 - **Vary the rhythm.** No lead or bass layer plays the same hit placement two bars running: write 2 or 4 different bars in the pattern.
-- **Registers.** Bass low (octave 1–2), chords mid (3), lead above (4–5). Never everything inside one octave.
+- **Registers.** Bass low (octave 2), chords mid (3), lead above (4–5). Never everything inside one octave. A bass line at octave 1 vanishes on phone and laptop speakers; only a sub bass (`sub_bass`, `sine`) goes there.
 - **Fast lines on synths.** Lines with 6+ notes a bar use sine/triangle/sawtooth/square; sampled instruments (`piano`, `strings`, `brass`, `marimba`, `harp`…) need room between notes.
 - **Arrangement.** Intros and breakdowns thin out (drop the kick, fewer layers); a chorus or drop adds layers, gain and density. Repeat sections with `form` and vary them with `from`, rather than copying layers.

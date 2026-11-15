@@ -263,7 +263,8 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | `W_OFF_CHORD_STRONG` | `sections[0].layers[4].pattern[0]` | lead, bar 4 beat 1: Ab over Cm7. Land on chord tones on beats 1 and 3: move it to C, Eb, G or Bb, or put a hook that must fit every chord on a chords layer |
 | `W_REPEATED_RHYTHM` | `sections[0].layers[4]` | lead plays the same rhythm two bars running. Vary it: write 2 or 4 different bars in the pattern |
 | `W_REVERB_ON_BASS` | `sections[0].layers[1]` | room or delay on the bass muddies the low end. Take them off the bass |
-| `W_ONE_OCTAVE` | `sections` | every note sits inside one octave. Spread the registers: bass at octave 1–2, chords at 3, lead at 4–5 |
+| `W_ONE_OCTAVE` | `sections` | every note sits inside one octave. Spread the registers: bass at octave 2, chords at 3, lead at 4–5 |
+| `W_BASS_TOO_LOW` | `sections[0].layers[3]` | bass at octave 1 sits below what phone and laptop speakers play, so the bass line won't be heard on them. Write it at octave=2, or keep it low on sub_bass and add a bass at octave 2 above it |
 | `W_LEAD_NO_MOTIF` | `sections[0].layers[2]` | the lead never repeats a 3-note shape. State a motif, repeat it with one change, answer it, return |
 | `W_SINGLE_CHORD_VAMP` (song-form brief only) | `sections[0].chords` | fewer than 3 distinct chords in a song-form track. Write a real progression: 3 or more chords, ending on V → i or V → I |
 

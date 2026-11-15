@@ -15,7 +15,7 @@ section "level" bars=4
     1| .... x... .... x...
     2| .... x... .... x.xr
   hat 909_hh : x.x. x.x. x.x. x.X.
-  bass square octave=1 crush=6 :
+  bass square octave=2 crush=6 :
     1| x.x. x.x. x.x. x.xx
     2| x.x. x.x. x..x x.x.
   lead#run square_lead crush=8 :

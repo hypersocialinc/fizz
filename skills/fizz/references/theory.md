@@ -59,7 +59,7 @@ Rules of thumb:
 
 ## Registers
 
-Bass low (octave 1–2), chords and pads in the middle (3), lead above (4–5). Never stack everything in one octave. A bass of `x` hits plays each chord's root in the bass's octave. A sub bass (`sub_bass`, `sine`) sits at `octave=1`.
+Bass low (octave 2), chords and pads in the middle (3), lead above (4–5). Never stack everything in one octave. A bass of `x` hits plays each chord's root in the bass's octave. Keep a bass line at octave 2: at octave 1 (F1 is about 44 Hz) phone and laptop speakers don't play it, and `fizz check` warns (`W_BASS_TOO_LOW`). A sub bass (`sub_bass`, `sine`) sits at `octave=1` by design, under a bass at octave 2 when the track must carry on small speakers.
 
 ## Voicing
 
