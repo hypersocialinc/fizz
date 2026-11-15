@@ -1,7 +1,11 @@
 fizz score v1
+# Dorian Funk: a funk groove in E dorian, grown into a short song. Shows a groove written
+# once and reused: an intro without the kick, snare and horn line, a break on new chords
+# without the bass, and an outro that keeps only the break's keys and pad.
 bpm 100
 key E dorian
 swing 0.2
+arrangement: intro groove break groove outro
 
 section "groove" bars=4
   chords: i7:2 IV7:2
@@ -20,3 +24,12 @@ section "groove" bars=4
   lead brass octave=4 gain=0.35 room=0.25 :
     1| . . . . 5 . 7 1' . . 7 . 5 . . .
     2| . . . . . . . . 1' . 7 1' . 7 5 .
+
+section "intro" from=groove drop=kick,snare,lead
+
+section "break" from=groove drop=kick,bass,lead
+  chords: IV7:2 VII:2
+  pad warm_pad octave=3 gain=0.25 presence=back : x___ ____ ____ ____
+
+section "outro" from=break drop=snare,hat,shaker
+  chords: i7:2 IV7:2

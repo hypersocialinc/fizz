@@ -1,0 +1,15 @@
+fizz score v1
+# Minimal Loop: the smallest whole track. Tempo, key and one section; no arrangement line,
+# so the section plays as written, and nothing else restates a default. A loop is a track.
+bpm 90
+key C minor
+
+section "loop" bars=2
+  chords: i VI
+  kick kit_bd : x... ..x. x... ....
+  snare kit_sd : .... x... .... x...
+  hat kit_hh : x.x. x.x. x.x. x.xx
+  chords epiano octave=3 : x... .... ..x. ....
+  bass finger_bass octave=2 :
+    1| 1 . . . . . 1 . 5, . . . 1 . . .
+    2| 6, . . 6, . . 3 . 1 . . . . . 6, .

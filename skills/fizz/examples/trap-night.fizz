@@ -1,6 +1,10 @@
 fizz score v1
+# Trap Night: a trap song in G minor. Shows the trap form (intro verse hook verse hook outro),
+# a hook built from the verse with a busier kick and a pad only it has, and an intro and
+# outro that drop the drums.
 bpm 140
 key G minor
+arrangement: intro verse hook verse hook outro
 
 section "verse" bars=8
   chords: i:2 VI:2 iv:2 V:2
@@ -23,3 +27,16 @@ section "verse" bars=8
     6| 6 . . . 4 . . . 1 . . . 2 . . .
     7| 5 . . . 3 . . . 2 . 1 . . . . .
     8| 5 . . . 3 . . . #7, . . . 1 . . .
+
+section "hook" from=verse
+  #kick :
+    1| x..x ...x ..x. ..x.
+    2| x... ..x. x.x. .xx.
+  pad warm_pad octave=3 gain=0.25 presence=back : x___ ____ ____ ____
+
+section "intro" from=verse bars=4 drop=kick,snare,bass,lead
+  chords: i:2 VI:2
+  pad warm_pad octave=3 gain=0.25 presence=back : x___ ____ ____ ____
+
+section "outro" from=intro drop=hat
+  chords: iv:2 i:2

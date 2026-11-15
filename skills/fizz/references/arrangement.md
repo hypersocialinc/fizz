@@ -1,6 +1,10 @@
 # Arrangement
 
-A loop becomes a track when sections differ. Fizz gives you `arrangement:` (play order), `from=` (a section built from another), `drop=` (leave layers out), `enter=`/`exit=` (a layer's bars inside a section) and `ramp=` (automation). Copying layers between sections by hand is the slow way; reuse is the fast one.
+A song is one file: write each part once as a section, then write the song as the `arrangement:` line, the order the sections play in (labels may repeat). That is how to build any track longer than a loop, and a song is the default; a loop is one section with no arrangement line. On Fizz FM each section becomes a pad and the arrangement its song.
+
+A loop becomes a song when sections differ. Fizz gives you `arrangement:` (play order), `from=` (a section built from another), `drop=` (leave layers out), `enter=`/`exit=` (a layer's bars inside a section) and `ramp=` (automation). Copying layers between sections by hand is the slow way; reuse is the fast one.
+
+Write the arrangement last, and leave it out when it is just the sections in the order written (that is what plays without it).
 
 ## Forms by genre
 
