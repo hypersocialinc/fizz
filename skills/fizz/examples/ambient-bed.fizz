@@ -6,7 +6,7 @@ bpm 70
 key F major
 mix cinematic
 tone warm
-form: drift bloom drift
+arrangement: drift bloom drift
 
 phrase bell = 5 _ _ _ _ _ 3 _ _ _ _ _ 2 _ _ _
 

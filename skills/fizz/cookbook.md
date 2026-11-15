@@ -152,7 +152,7 @@ fizz score v1
 bpm 96
 key A major
 
-form: chorus lift
+arrangement: chorus lift
 
 section chorus bars=4
   chords: I V vi IV
@@ -230,14 +230,14 @@ section "acid" bars=4
 
 ## 14. Intro / verse / drop
 
-How: `form:`, `from=`
+How: `arrangement:`, `from=`
 
 ```fizz
 fizz score v1
 bpm 124
 key A minor
 
-form: intro verse drop
+arrangement: intro verse drop
 
 section intro bars=4
   chords: i:2 VI:2
@@ -282,7 +282,7 @@ fizz score v1
 bpm 124
 key A minor
 
-form: drop breakdown
+arrangement: drop breakdown
 
 section drop bars=8
   chords: i:2 VI:2 III:2 VII:2

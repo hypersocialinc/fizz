@@ -5,7 +5,7 @@ fizz score v1
 bpm 90
 key D minor
 mix cinematic
-form: build lift chorus chorus
+arrangement: build lift chorus chorus
 
 section "build" bars=8
   chords: i:2 VI:2 III:2 V7:2

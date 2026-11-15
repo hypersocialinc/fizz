@@ -2,7 +2,7 @@ fizz score v1
 bpm 82
 key F major
 swing 0.33
-form: verse chorus
+arrangement: verse chorus
 
 phrase hook = 3 . 5 . 6 . 5 .
 

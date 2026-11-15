@@ -1,6 +1,6 @@
 # Arrangement
 
-A loop becomes a track when sections differ. Fizz gives you `form:` (play order), `from=` (a section built from another), `drop=` (leave layers out), `enter=`/`exit=` (a layer's bars inside a section) and `ramp=` (automation). Copying layers between sections by hand is the slow way; reuse is the fast one.
+A loop becomes a track when sections differ. Fizz gives you `arrangement:` (play order), `from=` (a section built from another), `drop=` (leave layers out), `enter=`/`exit=` (a layer's bars inside a section) and `ramp=` (automation). Copying layers between sections by hand is the slow way; reuse is the fast one.
 
 ## Forms by genre
 
@@ -29,7 +29,7 @@ Keep sections to 4, 8 or 16 bars.
 fizz score v1
 bpm 92
 key A minor
-form: intro verse chorus verse chorus outro
+arrangement: intro verse chorus verse chorus outro
 
 phrase hook = 3 . 1 . 3 _ 2 . 1 _ _ . 6, _ _ .
 
@@ -60,10 +60,10 @@ section "outro" from=chorus bars=4 drop=hook,kick
 ```
 
 - `chorus` keeps the verse's layers, swaps the progression, makes the kick busier and adds a lead only it has.
-- `intro` and `outro` are written after `chorus` but play where `form:` puts them. Each is 4 bars, so each gets a 4-bar progression.
+- `intro` and `outro` are written after `chorus` but play where `arrangement:` puts them. Each is 4 bars, so each gets a 4-bar progression.
 - `drop=` names layer ids: the lead is `hook` (from `lead#hook`), not `lead`.
 
-A base section can be anywhere in the file; `form:` decides what plays. A section that isn't in `form` and isn't anyone's base is reported as unused.
+A base section can be anywhere in the file; `arrangement:` decides what plays. A section that isn't in the arrangement and isn't anyone's base is reported as unused.
 
 ## Inside a section
 
@@ -78,7 +78,7 @@ A base section can be anywhere in the file; `form:` decides what plays. A sectio
 | Request | Change |
 |---|---|
 | "make the chorus bigger" | add a layer, more hits and `presence=front` in the chorus only |
-| "add an intro" | `section "intro" from=verse bars=4 drop=…` and put it first in `form:` |
+| "add an intro" | `section "intro" from=verse bars=4 drop=…` and put it first in `arrangement:` |
 | "strip it down" | `drop=` the busiest layers, or delete them |
-| "longer" | add sections to `form:`, or a bridge with a new progression |
+| "longer" | add sections to `arrangement:`, or a bridge with a new progression |
 | "a breakdown" | `section "break" from=drop drop=kick,bass,hat` plus a pad |

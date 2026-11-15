@@ -10,7 +10,7 @@ bpm 96
 key E dorian
 swing 0.15
 mix clean
-form: verse chorus verse chorus
+arrangement: verse chorus verse chorus
 
 phrase hook = 1 . 3 . 5 _ 4 . 3 _ _ . 1 _ _ .
 
@@ -34,8 +34,8 @@ section "chorus" from=verse
 Read it top to bottom:
 
 - **Header.** Line 1 is always `fizz score v1`. Comments start with `# ` and may go anywhere after it.
-- **Track lines:** `bpm` (40–240), `key` (tonic, then scale: major, minor, dorian, phrygian, lydian or mixolydian), and optionally `swing` (0–0.5), `mix` (the master's character), `tone`/`presence` (defaults for every layer), `seed` (a whole number; fixes the randomness of `humanize` and `chance`) and `form:`.
-- **`form:`** is the play order, by section label. Labels may repeat. Without it, sections play in the order written.
+- **Track lines:** `bpm` (40–240), `key` (tonic, then scale: major, minor, dorian, phrygian, lydian or mixolydian), and optionally `swing` (0–0.5), `mix` (the master's character), `tone`/`presence` (defaults for every layer), `seed` (a whole number; fixes the randomness of `humanize` and `chance`) and `arrangement:`.
+- **`arrangement:`** is the play order, by section label. Labels may repeat. Without it, sections play in the order written. (`form:` is its older name and still reads; in JSON the field is `form`.)
 - **`phrase name = steps`** names a motif to reuse as `$name`.
 - **`section "label" bars=N`** starts a section. Its `chords:` line comes first, then one line per layer.
 

@@ -156,7 +156,7 @@ warnings errors.
 | Construct | Text | JSON |
 |---|---|---|
 | Layer id, unique in its section; default is the role, numbered on repeats (`hat`, `hat2`) | `hat#open 909_oh : ..x. ..x. ..x. ..x.` | `{ "id": "open", "role": "hat", … }` |
-| Form: play order, labels may repeat | `form: intro verse chorus verse chorus` | `"form": ["intro", "verse", "chorus", "verse", "chorus"]` |
+| Arrangement: play order, labels may repeat (`form:` still reads) | `arrangement: intro verse chorus verse chorus` | `"form": ["intro", "verse", "chorus", "verse", "chorus"]` |
 | Section reuse: the base's bars, chords and layers; fields given replace the base's; `chords: []` keeps the base's; a `from` section can be a base | `section chorus from=verse` | `{ "label": "chorus", "from": "verse" }` |
 | Per-id override: only the fields written change (`fx` is replaced whole) | `  #hook gain=0.5 : $hook+3` | `{ "id": "hook", "fx": {"gain": 0.5}, "pattern": "$hook+3" }` |
 | Leave base layers out | `section break from=drop drop=kick,hat` | `"drop": ["kick", "hat"]` |

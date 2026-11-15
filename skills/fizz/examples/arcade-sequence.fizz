@@ -4,7 +4,7 @@ fizz score v1
 # crush for an 8-bit edge, and a modulation up a whole step for the last section.
 bpm 140
 key E minor
-form: level level boss
+arrangement: level level boss
 
 phrase run = 1 3 5 1' 5 3 1 .
 
