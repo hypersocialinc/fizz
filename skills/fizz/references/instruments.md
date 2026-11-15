@@ -52,7 +52,9 @@ Roles: `kick` `snare` `hat` `clap` `rim` `bass` `chords` `lead` `pad` `fx`. Defa
 - `synth_brass` (bass/chords/lead/pad/fx): synth brass stabs and swells
 - `choir` (bass/chords/lead/pad/fx): airy choir 'aah' pad
 - `sub_bass` (bass/chords/lead/pad/fx): pure sub bass, felt more than heard
-- `analog_bass` (bass/chords/lead/pad/fx): round analog synth bass with a filter snap
+- `round_bass` (bass/chords/lead/pad/fx): warm, round synth bass (the iPhone Jam bass); often right under other parts, e.g. lo-fi, soul, ambient; choose by ear
+- `pluck_synth_bass` (bass/chords/lead/pad/fx): short, dark plucked synth bass, a soft thud (the iPhone Jam bass's pluck)
+- `analog_bass` (bass/chords/lead/pad/fx): bright, snappy analog synth bass with a filter snap; often right where the bass is a synth part, e.g. French house, disco, acid; choose by ear
 - `finger_bass` (bass/chords/lead/pad/fx): round electric finger bass
 - `pick_bass` (bass/chords/lead/pad/fx): bright picked or slapped electric bass
 - `upright_bass` (bass/chords/lead/pad/fx): upright double bass, plucked (jazz, lo-fi)

@@ -34,6 +34,7 @@ Trap hats stay at 16 steps and roll with `r`; don't switch the layer to `steps=3
 
 ## Bass and groove
 
+- Choose the bass sound by ear, track by track; the style is a starting point, not a rule. A warm low bass under other parts (lo-fi, soul, deep house, ambient, pop ballads) often wants `round_bass`, warm and round, the bass the iPhone Jam plays. Where the bass is itself a synth part (French house and disco, synthwave, electro, acid, chiptune, IDM) `analog_bass` (bright, snappy) or a plain `sawtooth` or `square` often fits. But listen: in the feed, the founder kept a deep-house bass bright and put a synthwave bass on `round_bass`. A played electric bass (funk, soul, rock) is `finger_bass` or `pick_bass`, jazz is `upright_bass`, an 808 line is `sine` or `sub_bass`, and `pluck_synth_bass` is a short dark thud.
 - Lock the bass to the kick: hit where the kick hits, then add one or two notes of your own.
 - A bass of `x` follows the chords; add degrees on weak steps for movement (`x . . . . . x . x . . . . . 5, .`).
 - 808 slides: `~5` glides into the note; `glide=0.15` lengthens it.
