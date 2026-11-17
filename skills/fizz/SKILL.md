@@ -68,6 +68,7 @@ Editing a track: change only what was asked and keep everything else exactly as 
 | `fizz print <file> [--flat]` | the track as one file (sections, `from=`, arrangement); `--flat` writes every played section out |
 | `fizz export --strudel <file>` | Strudel code |
 | `fizz import <file.js>` | Strudel code to a Fizz track, with a report of what it couldn't read |
+| `fizz render <file\|slug> [--out dir]` | in the Fizz FM repo only (`pnpm fizz render`): the track offline to 24-bit WAV, never aloud: the mix plus `bass`, `drums` and `other` stems, every file the same length from time zero, so they line up in a DAW; prints bpm, the sections in play order with their bars and start times. A slug renders a saved fizz.fm track; `--no-stems` writes the mix alone. A sound missing from the bank fails it (exit 2, nothing written) unless `--allow-missing`, and a mix far under both level targets fails unless `--allow-quiet` |
 
 Use `fizz` if it is on your PATH (`fizz --version`). Otherwise run it as `npx @hypersocial/fizz check track.fizz`, or install it with `npm i -g @hypersocial/fizz`. Inside the Fizz FM repo it is `pnpm fizz check track.fizz`. With no CLI at all, check by hand: count every bar's steps, and keep instrument ids to `references/instruments.md`.
 
