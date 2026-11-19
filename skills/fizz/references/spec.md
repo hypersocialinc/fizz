@@ -119,7 +119,7 @@ path: `sections[2].layers[0].pattern (written at sections[0].layers[0].pattern):
 
 | Rule | Text | JSON |
 |---|---|---|
-| **One step, one glued character.** In a run with no spaces each character is a step. A step written with more than one character (`[xx]`, `<x .>`, `5,`, `1'`, `b3`, `5!`, `~5`, `$hook`) stands alone with spaces round it. A bar that miscounts with such a step glued in gets `E_GLUED`, whose message gives the spaced fix; a glued bar that counts right is accepted (the rule exists to stop miscounts). v1 only, and on an edit only for patterns the edit wrote. | `x.x. [xx] ...` · `1 . 5, .` | same strings |
+| **One step, one glued character.** In a run with no spaces each character is a step. A step written with more than one character (`[xx]`, `<x .>`, `5,`, `1'`, `b3`, `5!`, `~5`, `$hook`) stands alone with spaces round it. A bar that miscounts with a `[..]` or `<..>` glued in gets `E_GLUED`, whose message gives the spaced fix (a glued marked degree is one step and gets the step count instead); a glued bar that counts right is accepted (the rule exists to stop miscounts). v1 only, and on an edit only for patterns the edit wrote. | `x.x. [xx] ...` · `1 . 5, .` | same strings |
 | `r` is a one-character roll, the same as `[xx]`. | `..x. .xr.` | `"..x. .xr."` |
 | Bars on their own lines, numbers optional and checked (`2|` on the third bar is a parse error). | `lead kalimba :` then `  1| 1 . 3 .…` `  2| …` | `"pattern": ["1 . 3 .…", "…"]` |
 
@@ -145,10 +145,10 @@ warnings errors.
 
 | Code | Message |
 |---|---|
-| `E_STEP_COUNT` | `bar 1 has 15 of 16 steps. Groups: "...." 4, "...." 4, "X..." 4, ".x[xx]" 3 — a [..] pair is ONE step. Make ".x[xx]" 4 steps` |
+| `E_STEP_COUNT` | `bar 1 has 15 of 16 steps. Beats: "...." 4, "...." 4, "X..." 4, ".x[xx]" 3 (4+4+4+3) — a [..] pair is ONE step. Beat 4 has 3; make it 4 steps` (a bar not written in four beat groups is listed run by run: `Groups: "1" 1, "." 1, …`) |
 | `E_STEP_COUNT` (every bar) | `every bar has 8 steps but the layer is 16. If you meant eighth notes, set "steps": 8 and keep the pattern; otherwise make each bar 16 steps` |
 | `E_HOLD` | `the bar, step 4: "_" after "." holds nothing ("X_._"). To rest write "X_..", to re-hit write "X_.X", to keep ringing write "X___"` |
-| `E_GLUED` | `the bar has 15 of 16 steps, and "[xx]" is glued into ".x[xx]". One glued character is one step; … Write ".xr" (r is a roll) or ".x [xx]", then count again` |
+| `E_GLUED` | `the bar has 15 of 16 steps, and "[xx]" is glued into ".x[xx]". A [..] pair is ONE step however wide it looks; … Write ".xr" (r is a roll) or ".x [xx]", then count again` |
 | `E_SHAPE` | the path is printed once (`- bpm: Invalid input: …`), not twice |
 
 ### Structure
@@ -239,7 +239,7 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | `E_LAYER_ID` | `sections[0].layers[1].id` | two layers in section "a" are called "a" (layers 0 and 1); ids are unique in a section, rename one |
 | `E_ENTER_EXIT` | `sections[0].layers[0].enter` | enter is 5; it is a bar of the section, a whole number 1–4 |
 | `E_RAMP` | `sections[0].layers[0].ramp[0].param` | ramp.param "size" can't be automated; use one of gain, lpf, hpf, lpq, room, delay, pan, crush, shape, chorus, tremolo, delayfeedback |
-| `E_GLUED` (v1) | `sections[0].layers[0].pattern` | the bar has 15 of 16 steps, and "[xx]" is glued into ".x[xx]". One glued character is one step; a bracket group or marked degree stands alone with spaces around it. Write ".xr" (r is a roll) or ".x [xx]", then count again |
+| `E_GLUED` (v1) | `sections[0].layers[0].pattern` | the bar has 15 of 16 steps, and "[xx]" is glued into ".x[xx]". A [..] pair is ONE step however wide it looks; set it apart with spaces. Write ".xr" (r is a roll) or ".x [xx]", then count again |
 | `E_FORM` (v1) | `form[1]` | form plays "x", which isn't a section; labels are "a" |
 | `E_FROM` (v1) | `sections[1].from` | section "b" is from "c", which leads back to "b"; a from chain can't loop |
 | `E_PHRASE` (v1) | `sections[0].layers[0].pattern` | "$nope" is not a phrase; define it in phrases first |
