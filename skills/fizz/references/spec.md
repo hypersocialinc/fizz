@@ -265,7 +265,10 @@ plays exactly as before. The engine card (`fizz-v1-the-engine-plays-it`) builds 
 | `W_REVERB_ON_BASS` | `sections[0].layers[1]` | room or delay on the bass muddies the low end. Take them off the bass |
 | `W_ONE_OCTAVE` | `sections` | every note sits inside one octave. Spread the registers: bass at octave 2, chords at 3, lead at 4–5 |
 | `W_BASS_TOO_LOW` | `sections[0].layers[3]` | bass at octave 1 sits below what phone and laptop speakers play, so the bass line won't be heard on them. Write it at octave=2, or keep it low on sub_bass and add a bass at octave 2 above it |
+| `W_DRUM_LOOP` | `sections[0].layers[0]` | the kit plays the same bar 4 times running (bars 1–4). Vary it every bar or two: move a kick, add a ghost snare or an open hat, and fill the last bar |
 | `W_LEAD_NO_MOTIF` | `sections[0].layers[2]` | the lead never repeats a 3-note shape. State a motif, repeat it with one change, answer it, return |
 | `W_SINGLE_CHORD_VAMP` (song-form brief only) | `sections[0].chords` | fewer than 3 distinct chords in a song-form track. Write a real progression: 3 or more chords, ending on V → i or V → I |
+
+`W_DRUM_LOOP` checks the kit as a whole: a kit bar is the steps every drum layer (`kick`, `snare`, `clap`, `rim`, `hat`) hits in that bar, and any two bars running that match are a finding, so a four-on-the-floor kick is fine while the rest moves. Bars where the kit is silent, and sections of 1 or 2 bars, are exempt. The path is the section's first drum layer; the message names the longest run. `W_REPEATED_RHYTHM` is the same idea for one lead or bass layer.
 
 `W_OFF_CHORD_STRONG` checks `bass`, `chords`, `lead` and `pad` (not `fx` or drums): the note sounding on step 1 or 9 (the half bar for other step counts), a held or glided note counting as the note it continues, against the bar's chord tones (the triad, the 7th when the symbol has one, a slash chord's bass).

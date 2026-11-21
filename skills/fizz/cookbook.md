@@ -370,7 +370,7 @@ key F minor
 # so it fits every chord without one note written per bar.
 section "hook" bars=4
   chords: i7 VImaj7 iv7 v7
-  kick kit_bd : x... ...x ..x. ....
+  kick kit_bd : x... ...x ..x. .... | x... ...x ..x. ..x.
   snare kit_sd : .... x... .... x...
   chords#hook pluck octave=4 voicing=led :
     1| x.x. ..x. x... x.x.
